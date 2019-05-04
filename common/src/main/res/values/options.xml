@@ -1,0 +1,45 @@
+<resources>
+    <string name="email" translatable="false"></string>
+    <string name="website" translatable="false"></string>
+    <string name="twitter" translatable="false"></string>
+    <string name="instagram" translatable="false"></string>
+    <string name="facebook" translatable="false"></string>
+    <string name="playStore" translatable="false"></string>
+    <string name="server_address" translatable="false">http://162.212.157.209:8080/</string>
+    <string name="fabric_key" templateMergeStrategy="preserve" translatable="false"></string>
+    <string name="stripe_publishable_key" translatable="false">hz2kzqp4wgvhz6x7</string>
+    <string name="payment_currency" translatable="false">usd</string>
+    <string name="yandex_maps_key" templateMergeStrategy="preserve" translatable="false">34f9330e-9e9b-4662-90f0-b5c341a7fc49</string>
+    <string name="defaultLocation" translatable="false">40.1792,44.4991</string>
+    <string name="theme" translatable="false">Amaranth</string>
+    <string name="default_country_code" translatable="false"></string>
+    
+    <string name="paybox_getting_payment_key">Hav2OlZjgQ6DXHOW</string>
+    <string name="paybox_extradition_payment_key">tdpEeAng1L0cm2ui</string>
+    <string name="paybox_merchant_id">511168</string>
+
+    <string name="cardpaymnets_public_key">0000</string>
+    <string name="cardpaymnets_secret_api">0000</string>
+    <!--string name="testMode" translatable="false">11111111</string-->
+    <string name="default_language">en_US</string>
+    <bool name="is_call_request_enabled_driver">true</bool>
+    <bool name="is_call_request_enabled_rider">true</bool>
+    <bool name="is_direct_call_enabled_driver">true</bool>
+    <bool name="is_direct_call_enabled_rider">true</bool>
+    <bool name="read_only_driver_profile">true</bool>
+    <bool name="use_custom_fee">false</bool>
+    <bool name="use_date_converter">false</bool>
+    <bool name="use_custom_login">false</bool>
+    <string name="verification_address"></string>
+    <string name="verify_address"></string>
+    <bool name="payment_braintree_enabled">true</bool>
+    <bool name="payment_stripe_enabled">true</bool>
+    <bool name="payment_web_enabled">false</bool>
+    <bool name="request_payment_enabled">true</bool>
+    <integer name="minimum_payment_request">10</integer>
+    <integer name="minimum_charge_amount">10</integer>
+    <integer name="charge_first">10</integer>
+    <integer name="charge_second">20</integer>
+    <integer name="charge_third">50</integer>
+    <bool name="use_miles">false</bool>
+</resources>

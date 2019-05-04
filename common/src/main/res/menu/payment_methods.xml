@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/paybox"
+        android:title="pay box"
+        android:visible="@bool/payment_braintree_enabled" />
+
+    <item
+        android:id="@+id/cloud_payments"
+        android:title="cloud payments"
+        android:visible="@bool/payment_stripe_enabled" />
+
+
+</menu>
