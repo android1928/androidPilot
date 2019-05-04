@@ -29,7 +29,7 @@
         tools:replace="android:label"
         tools:targetApi="m">
         <activity android:name=".activities.looking.LookingActivity" />
-        <activity android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity"
+<!--        <activity android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -37,7 +37,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="${applicationId}.braintree" />
             </intent-filter>
-        </activity>
+        </activity>-->
         <!--<meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />-->
