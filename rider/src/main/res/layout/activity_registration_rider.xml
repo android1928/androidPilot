@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:theme="@style/Theme.AppCompat"
+    android:layout_height="match_parent"
+    tools:context="com.innomalist.taxi.rider.activities.registration.RegistrationRider">
+<LinearLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_centerVertical="true">
+
+    <EditText
+        android:id="@+id/regPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:hint="@string/enter_phone_number"
+        android:inputType="phone"
+        android:padding="15dp"
+        tools:ignore="TextFields" />
+
+    <EditText
+        android:id="@+id/regActivateCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:fontFamily="monospace"
+        android:hint="@string/enter_activate_code"
+        android:inputType="number"
+        android:padding="15dp"
+        tools:ignore="TextFields" />
+
+    <Button
+        android:id="@+id/sendNumberBt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="enter"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/sendActivationCodeBt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="send"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/regTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Enter phone number as +70000000000"/>
+</LinearLayout>
+</RelativeLayout>

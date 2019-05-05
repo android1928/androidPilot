@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="con">con</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="enter_activate_code">Enter Activate code</string>
 </resources>

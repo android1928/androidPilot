@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
 import com.firebase.ui.auth.AuthUI;
@@ -131,6 +132,7 @@ public class SplashActivity extends BaseActivity implements LocationListener {
         binding.loginButton.setOnClickListener(onLoginButtonClicked);
         SP = MyPreferenceManager.getInstance(getApplicationContext());
         checkPermissions();
+
 
     }
 
@@ -269,7 +271,11 @@ public class SplashActivity extends BaseActivity implements LocationListener {
                     String phone;
                     if (idpResponse != null) {
                         phone = idpResponse.getPhoneNumber();
-                        tryLogin(phone);
+                        if (phone != null) {
+                            tryLogin(phone);
+                        } else {
+                            Toast.makeText(this, "Enter phone number!",Toast.LENGTH_SHORT).show();
+                        }
                         return;
                     }
                 }
