@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:theme="@style/Theme.AppCompat"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -56,5 +57,18 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>
+
+        <Button
+            android:id="@+id/signOutBt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="sign Out"
+            app:layout_constraintBottom_toTopOf="@+id/textView_new"
+            app:layout_constraintTop_toBottomOf="@+id/logo_image_new"
+            app:layout_constraintVertical_bias="0.78"
+            tools:layout_editor_absoluteX="161dp"
+            tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

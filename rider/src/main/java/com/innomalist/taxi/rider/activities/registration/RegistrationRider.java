@@ -37,12 +37,14 @@ public class RegistrationRider extends AppCompatActivity implements View.OnClick
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authStateListener;
     private FirebaseUser user;
+
     private FirebaseAuthSettings firebaseAuthSettings;
     private PhoneAuthProvider phoneAuthProvider;
 
     private String verificationId;
     private PhoneAuthProvider.ForceResendingToken resendToken;
     private String numberStr;
+    private Intent mainMenuIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,25 +52,41 @@ public class RegistrationRider extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_registration_rider);
         findElements();
         auth = FirebaseAuth.getInstance();
-        selectVisible(sendNumBt,numEd,sendActivCodeBt,activCodeEd);
+        user = auth.getCurrentUser();
+        mainMenuIntent = new Intent(RegistrationRider.this, AboutActivity.class);
+        selectVisible(sendNumBt, numEd, sendActivCodeBt, activCodeEd);
 
-        try{
+        try {
             authStateListener = firebaseAuth -> {
-                if(user!=null){
-                }else {
-                    Toast.makeText(this, "lease authorize in app",Toast.LENGTH_SHORT).show();
+                if (user != null) {
+
+                } else {
+                    Toast.makeText(this, "please authorize in app", Toast.LENGTH_SHORT).show();
                 }
             };
-        }catch (Exception e){
-            Toast.makeText(this,"Undefinded error!", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "Undefinded error!", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void createAccount() {
+        int regRandomInt = (int) (Math.random() * 999);
+        String regRandomIntStr = String.valueOf(regRandomInt);
+        auth.createUserWithEmailAndPassword(numberStr + regRandomIntStr + "@gmail.com", "android1928").addOnCompleteListener(task -> {
+            if(!task.isSuccessful()){
+                Toast.makeText(this,"Registration error",Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(this,"Hello!",Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.sendNumberBt:
-                selectVisible(sendActivCodeBt,activCodeEd,sendNumBt,numEd);
+                selectVisible(sendActivCodeBt, activCodeEd, sendNumBt, numEd);
                 numberStr = phoneNumberStr();
                 sendVerificationCode(numberStr);
                 break;
@@ -82,21 +100,15 @@ public class RegistrationRider extends AppCompatActivity implements View.OnClick
         }
     }
 
-    private void sendVerificationCode(String number){
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                number,
-                60,
-                TimeUnit.SECONDS,
-                this,
-                callbacks
-        );
+    private void sendVerificationCode(String number) {
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(number, 60, TimeUnit.SECONDS, this, callbacks);
     }
 
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks callbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
         public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
             String code = phoneAuthCredential.getSmsCode();
-            if(code!=null){
+            if (code != null) {
                 activCodeEd.setText(code);
                 verifyVerificationCode(code);
             }
@@ -104,7 +116,7 @@ public class RegistrationRider extends AppCompatActivity implements View.OnClick
 
         @Override
         public void onVerificationFailed(FirebaseException e) {
-            Toast.makeText(RegistrationRider.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegistrationRider.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
         @Override
@@ -115,25 +127,27 @@ public class RegistrationRider extends AppCompatActivity implements View.OnClick
         }
     };
 
-    private void verifyVerificationCode(String otp){
-        PhoneAuthCredential  credential =PhoneAuthProvider.getCredential(verificationId,otp);
+    private void verifyVerificationCode(String otp) {
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, otp);
 
         signInWithPhoneAuthCredential(credential);
     }
 
-    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential){
+    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         auth.signInWithCredential(credential)
                 .addOnCompleteListener(RegistrationRider.this, task -> {
-                    if(task.isSuccessful()){
-                        Intent mainMenuIntent = new Intent(RegistrationRider.this, AboutActivity.class);
+                    if (task.isSuccessful()) {
                         mainMenuIntent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TASK);
+/*
+                        createAccount();
+*/
                         startActivity(mainMenuIntent);
-                    } else{
+                    } else {
                         String message = "Undefinded Error on Sign In";
-                        if(task.getException() instanceof FirebaseAuthInvalidCredentialsException){
+                        if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                             message = "Invalid code!";
                         }
-                        Snackbar snackbar = Snackbar.make(findViewById(R.id.parent), message,Snackbar.LENGTH_SHORT);
+                        Snackbar snackbar = Snackbar.make(findViewById(R.id.parent), message, Snackbar.LENGTH_SHORT);
                         snackbar.setAction("Dismiss", v -> {
                         });
                         snackbar.show();
@@ -142,25 +156,25 @@ public class RegistrationRider extends AppCompatActivity implements View.OnClick
     }
 
 
-    private String verificationCodeStr(){
+    private String verificationCodeStr() {
         String code = activCodeEd.getText().toString().trim();
-        if(code.isEmpty()||code.length()<6) {
+        if (code.isEmpty() || code.length() < 6) {
             activCodeEd.setError("Enter valid code!");
             activCodeEd.requestFocus();
         }
         return code;
     }
 
-    private String phoneNumberStr(){
+    private String phoneNumberStr() {
         String number = numEd.getText().toString().trim();
-        if(number.isEmpty()){
+        if (number.isEmpty()) {
             numEd.setError("Enter a valid number!");
             numEd.requestFocus();
         }
         return number;
     }
 
-    private void findElements(){
+    private void findElements() {
         sendNumBt = findViewById(R.id.sendNumberBt);
         sendNumBt.setOnClickListener(this);
 
@@ -171,10 +185,24 @@ public class RegistrationRider extends AppCompatActivity implements View.OnClick
         activCodeEd = findViewById(R.id.regActivateCode);
     }
 
-    private void selectVisible(Button visBt, EditText visEd, Button invisBt, EditText invisEd){
+    private void selectVisible(Button visBt, EditText visEd, Button invisBt, EditText invisEd) {
         visBt.setVisibility(View.VISIBLE);
         visEd.setVisibility(View.VISIBLE);
         invisBt.setVisibility(View.GONE);
         invisEd.setVisibility(View.GONE);
     }
+    @Override
+    public void onStart() {
+        super.onStart();
+        auth.addAuthStateListener(authStateListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (authStateListener != null) {
+            auth.removeAuthStateListener(authStateListener);
+        }
+    }
+
 }

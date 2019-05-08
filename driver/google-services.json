@@ -15,11 +15,27 @@
       },
       "oauth_client": [
         {
-          "client_id": "75218405422-i8197h0hv27gledqie4ghoain0ev29f1.apps.googleusercontent.com",
+          "client_id": "75218405422-i0h7si6aekos403ki3n7mlf25nfit3a3.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.autopilot.taxi.driver",
-            "certificate_hash": "23e4342d785f3ab7b526ba1f231c78b9ed8a7cad"
+            "certificate_hash": "366c37c98ebf68548443b02a6714285c750259c2"
+          }
+        },
+        {
+          "client_id": "75218405422-t7t5djth9ucamveqg92pht2raflbdpuj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.autopilot.taxi.driver",
+            "certificate_hash": "bbf8fe66937ffd13057475c33747e2af0c66b4a8"
+          }
+        },
+        {
+          "client_id": "75218405422-a1e96a0op1l3bkdkuki1k5611jd40gmh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.autopilot.taxi.driver",
+            "certificate_hash": "e0b5cd2b03031d3e0875908c21948de547036de1"
           }
         },
         {
@@ -31,12 +47,16 @@
           }
         },
         {
-          "client_id": "75218405422-a1e96a0op1l3bkdkuki1k5611jd40gmh.apps.googleusercontent.com",
+          "client_id": "75218405422-i8197h0hv27gledqie4ghoain0ev29f1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.autopilot.taxi.driver",
-            "certificate_hash": "e0b5cd2b03031d3e0875908c21948de547036de1"
+            "certificate_hash": "23e4342d785f3ab7b526ba1f231c78b9ed8a7cad"
           }
+        },
+        {
+          "client_id": "75218405422-v009u8o3c3vd4778gb99tp468ku5mkvh.apps.googleusercontent.com",
+          "client_type": 3
         }
       ],
       "api_key": [
@@ -72,11 +92,27 @@
       },
       "oauth_client": [
         {
-          "client_id": "75218405422-uq6signmkvqg1gjbhut2qc7uqmgq6v0k.apps.googleusercontent.com",
+          "client_id": "75218405422-4u03er3a6dt9dvngk3k97vd0agnivpga.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.autopilot.taxi.rider",
-            "certificate_hash": "23e4342d785f3ab7b526ba1f231c78b9ed8a7cad"
+            "certificate_hash": "366c37c98ebf68548443b02a6714285c750259c2"
+          }
+        },
+        {
+          "client_id": "75218405422-crv6mh29bqa1088j6ltbihj2hp399hnc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.autopilot.taxi.rider",
+            "certificate_hash": "bbf8fe66937ffd13057475c33747e2af0c66b4a8"
+          }
+        },
+        {
+          "client_id": "75218405422-1odjf0j9k7j09mhc2jjpr62o68knvbcg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.autopilot.taxi.rider",
+            "certificate_hash": "7e6e9a38aade12006d7484b12e75e0567b07df6b"
           }
         },
         {
@@ -88,12 +124,16 @@
           }
         },
         {
-          "client_id": "75218405422-1odjf0j9k7j09mhc2jjpr62o68knvbcg.apps.googleusercontent.com",
+          "client_id": "75218405422-uq6signmkvqg1gjbhut2qc7uqmgq6v0k.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.autopilot.taxi.rider",
-            "certificate_hash": "7e6e9a38aade12006d7484b12e75e0567b07df6b"
+            "certificate_hash": "23e4342d785f3ab7b526ba1f231c78b9ed8a7cad"
           }
+        },
+        {
+          "client_id": "75218405422-v009u8o3c3vd4778gb99tp468ku5mkvh.apps.googleusercontent.com",
+          "client_type": 3
         }
       ],
       "api_key": [
